@@ -40,6 +40,7 @@ class _MyAppState extends State<MyApp> {
                 Task('Aprendendo HTML', 'assets/img/html.png', 2),
                 Task('Aprendendo CSS', 'assets/img/css.png', 5),
                 Task('Aprendendo Javascript', 'assets/img/javascript.png', 3),
+                Task('Aprendendo Javascript', 'assets/img/javascript.png', 3),
               ],
             ),
           ),
