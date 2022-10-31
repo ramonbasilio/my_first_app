@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
           opacity: opacidade ? 1 : 0,
           duration: Duration(milliseconds: 1000),
           child: Container(
-            color: Colors.blue[100],
+            color: Colors.blue[500],
             child: ListView(
               children: const [
                 Task('Aprendendo Flutter', 'assets/img/flutter.png', 0),
