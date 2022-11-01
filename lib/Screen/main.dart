@@ -1,12 +1,12 @@
-import 'package:my_first_app/tasks.dart';
+import 'package:my_first_app/Components/tasks.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -25,32 +25,34 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           leading: Container(),
-          title: Text('My Tasks'),
+          title: const Text('Programming Language'),
         ),
         body: AnimatedOpacity(
           opacity: opacidade ? 1 : 0,
-          duration: Duration(milliseconds: 1000),
+          duration: const Duration(milliseconds: 800),
           child: Container(
             color: Colors.blue[500],
             child: ListView(
               children: const [
-                Task('Aprendendo Flutter', 'assets/img/flutter.png', 0),
-                Task('Aprendendo Python', 'assets/img/python.jpg', 4),
-                Task('Aprendendo Java', 'assets/img/java.jpg', 3),
-                Task('Aprendendo HTML', 'assets/img/html.png', 2),
-                Task('Aprendendo CSS', 'assets/img/css.png', 5),
-                Task('Aprendendo Javascript', 'assets/img/javascript.png', 3)
+                Task('Learning Flutter', 'assets/img/flutter.png', 0),
+                Task('Learning Python', 'assets/img/python.jpg', 4),
+                Task('Learning Java', 'assets/img/java.jpg', 3),
+                Task('Learning HTML', 'assets/img/html.png', 2),
+                Task('Learning CSS', 'assets/img/css.png', 5),
+                Task('Learning Javascript', 'assets/img/javascript.png', 3),
+                SizedBox(height: 80),
               ],
             ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.amber,
           onPressed: () {
             setState(() {
               opacidade =! opacidade;
             });
           },
-          child: Icon(Icons.remove_red_eye_outlined),
+          child: const Icon(Icons.remove_red_eye_outlined),
         ),
       ),
     );
@@ -64,6 +66,7 @@ class initialScreen extends StatefulWidget {
   State<initialScreen> createState() => _initialScreenState();
 }
 
+// ignore: camel_case_types
 class _initialScreenState extends State<initialScreen> {
   @override
   Widget build(BuildContext context) {
