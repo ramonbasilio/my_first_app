@@ -15,7 +15,7 @@ class Task extends StatefulWidget {
 
 class _TaskState extends State<Task> {
   var nivel =
-  0; //antes do override para ela não perder o valor ao ser carregada
+      0; //antes do override para ela não perder o valor ao ser carregada
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -70,28 +70,51 @@ class _TaskState extends State<Task> {
                         Difficulty(difficultyLeve: widget.dificuldade)
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        height: 60,
-                        width: 60,
-                        child: ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                //esta função vai ficar "observando" se alguma variavel muda de estado ou valor
-                                nivel++;
-                              });
-                              //print(nivel);
-                            },
-                            child: Column(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: const [
-                                Icon(Icons.arrow_drop_up),
-                                Text('UP', style: TextStyle(fontSize: 20))
-                              ],
-                            )),
+                    SizedBox(
+                      height: 400,
+                      width: 50,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SizedBox(
+                            width: 40, // <-- Your width
+                            height: 40,
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    //esta função vai ficar "observando" se alguma variavel muda de estado ou valor
+                                    nivel++;
+                                  });
+                                },
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: const [
+                                    Icon(
+                                      Icons.arrow_drop_up,
+                                    ),
+                                  ],
+                                )),
+                          ),
+                          SizedBox(
+                            width: 40, // <-- Your width
+                            height: 40,
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    //esta função vai ficar "observando" se alguma variavel muda de estado ou valor
+                                    nivel--;
+                                  });
+                                },
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: const [
+                                      Icon(Icons.arrow_drop_down),
+                                    ])),
+                          ),
+                        ],
                       ),
                     )
                   ],
@@ -116,7 +139,8 @@ class _TaskState extends State<Task> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text('Level: $nivel',
-                        style: const TextStyle(color: Colors.white, fontSize: 20)),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 20)),
                   ),
                 ],
               )
