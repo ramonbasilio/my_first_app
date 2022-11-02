@@ -58,18 +58,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-class initialScreen extends StatefulWidget {
-  const initialScreen({Key? key}) : super(key: key);
-
-  @override
-  State<initialScreen> createState() => _initialScreenState();
-}
-
-// ignore: camel_case_types
-class _initialScreenState extends State<initialScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
