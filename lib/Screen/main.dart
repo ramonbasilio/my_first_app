@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
             color: Colors.blue[500],
             child: ListView(
               children: const [
-                Task('Learning Flutter', 'assets/img/flutter.png', 0),
+                Task('Learning Flutter', 'assets/img/flutter.png', 1),
                 Task('Learning Python', 'assets/img/python.jpg', 4),
                 Task('Learning Java', 'assets/img/java.jpg', 3),
                 Task('Learning HTML', 'assets/img/html.png', 2),

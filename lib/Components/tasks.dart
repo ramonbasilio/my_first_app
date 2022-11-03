@@ -16,6 +16,7 @@ class Task extends StatefulWidget {
 class _TaskState extends State<Task> {
   var nivel =
       0; //antes do override para ela não perder o valor ao ser carregada
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -80,19 +81,25 @@ class _TaskState extends State<Task> {
                             width: 40, // <-- Your width
                             height: 40,
                             child: ElevatedButton(
+                                style: ButtonStyle(
+                                    padding: MaterialStateProperty.all(
+                                        EdgeInsets.zero)),
                                 onPressed: () {
                                   setState(() {
                                     //esta função vai ficar "observando" se alguma variavel muda de estado ou valor
-                                    nivel++;
+                                    widget.dificuldade * 10 != nivel ? nivel++ : false;
                                   });
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: const [
                                     Icon(
                                       Icons.arrow_drop_up,
                                     ),
+                                    Text(
+                                      'UP',
+                                      style: TextStyle(fontSize: 8),
+                                    )
                                   ],
                                 )),
                           ),
@@ -100,18 +107,23 @@ class _TaskState extends State<Task> {
                             width: 40, // <-- Your width
                             height: 40,
                             child: ElevatedButton(
+                                style: ButtonStyle(
+                                    padding: MaterialStateProperty.all(
+                                        EdgeInsets.zero)),
                                 onPressed: () {
                                   setState(() {
                                     //esta função vai ficar "observando" se alguma variavel muda de estado ou valor
-                                    nivel--;
+                                    nivel > 0 ? nivel-- : false;;
                                   });
                                 },
                                 child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
                                     children: const [
                                       Icon(Icons.arrow_drop_down),
+                                      Text(
+                                        'DOWN',
+                                        style: TextStyle(fontSize: 8),
+                                      )
                                     ])),
                           ),
                         ],
@@ -130,7 +142,7 @@ class _TaskState extends State<Task> {
                       child: LinearProgressIndicator(
                         color: Colors.white,
                         backgroundColor: Colors.blueGrey,
-                        value: (widget.dificuldade > 0)
+                        value: (widget.dificuldade > 0 || widget.dificuldade < nivel)
                             ? (nivel / widget.dificuldade) / 10
                             : 1,
                       ),
@@ -140,7 +152,7 @@ class _TaskState extends State<Task> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text('Level: $nivel',
                         style:
-                            const TextStyle(color: Colors.white, fontSize: 20)),
+                        const TextStyle(color: Colors.white, fontSize: 20)),
                   ),
                 ],
               )
